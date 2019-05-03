@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Sections</title>
+</h:head>
+
+<ui:include src="layouts/header.xhtml"></ui:include>
+
+<h:body>
+	<div class="section">
+
+		<div class="container">
+
+			<p:outputPanel>
+				<div class="is-clearfix page-header">
+					<h1 class="is-pulled-right ">Sectie</h1>
+				</div>
+
+				<p:commandButton value="Adauga" type="button"
+					onclick="PF('dlg').show();" action="#{sectionBean.clear}">
+					<p:ajax update="dlgForm" resetValues="true" />
+				</p:commandButton>
+
+				<p:dialog header="Sectie" widgetVar="dlg" modal="true">
+
+					<h:form id="dlgForm">
+						<p:panelGrid id="display" columns="2" styleClass="tableGrid">
+							<h:outputText value="Denumire sectie" />
+							<p:inputText value="${sectionBean.section.name}" />
+
+							<h:outputText value="" />
+
+							<p:commandButton value="Salvare" styleClass="is-pulled-right"
+								action="#{sectionBean.saveOrUpdate}" update="table"
+								oncomplete="PF('dlg').hide();" />
+
+							<p:inputText value="#{sectionBean.section.id}" type="hidden" />
+						</p:panelGrid>
+					</h:form>
+				</p:dialog>
+
+
+
+				<p:dataTable id="table" var="section"
+					value="${sectionBean.sections}" rowIndexVar="row">
+
+					<p:column headerText="#">
+						<h:outputText value="#{row + 1}" />
+					</p:column>
+
+					<p:column sortBy="#{section.name}" headerText="Denumire">
+						<h:outputText value="#{section.name}" />
+					</p:column>
+
+
+					<p:column headerText="Actiuni">
+						<h:form>
+							<p:commandButton value="Editare" onclick="PF('dlg').show();"
+								resetValues="true" style="margin-right:20px;"
+								update="dlgForm:display" styleClass="btn-edit"
+								action="#{sectionBean.setSection(section)}" />
+
+							<p:commandButton value="Stergere" styleClass="btn-delete"
+								action="#{sectionBean.delete(section.id)}" update="table">
+								<p:confirm header="Confirmare" 
+									message="Sterge ${section.name}?" />
+							</p:commandButton>
+
+							<p:confirmDialog global="true" showEffect="fade"
+								hideEffect="fade">
+								<p:commandButton value="Sterge" type="button"
+									styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+								<p:commandButton value="Anulare" type="button"
+									styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+							</p:confirmDialog>
+
+						</h:form>
+					</p:column>
+
+				</p:dataTable>
+			</p:outputPanel>
+
+		</div>
+	</div>
+
+</h:body>
+</html>

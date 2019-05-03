@@ -1,0 +1,54 @@
+html, body {
+	background-color: #eee;
+	min-height: 100vh !important;
+}
+
+.ui-state-default {
+	border: none !important;
+	border: 2px solid #729fcf !important;
+	border-radius: 0;
+	margin-bottom: 5px;
+}
+
+#table tr {
+	background-color: #ccc !important;
+	color: #000000;
+}
+
+
+#table tr:nth-child(even) {
+	background-color: #eeeeec !important;
+}
+
+
+.btn-delete {
+	background-color: #a40000 !important;
+	color: #fff !important;
+}
+
+.btn-edit {
+	background-color: #204a87 !important;
+	color: #fff !important;
+}
+
+
+.tableGrid.ui-panelgrid>*>tr,
+.tableGrid.ui-panelgrid .ui-panelgrid-cell {
+    border: none !important;
+}
+
+[role="columnheader"]:first-child {
+	width: 100px !important;
+}
+
+[role="columnheader"]:last-child {
+	width: 300px !important;
+}
+
+
+.page-header {
+	font-size: 1.5em;
+	border-bottom: 3px solid #729fcf !important;
+	margin-bottom: 5px;
+
+}
