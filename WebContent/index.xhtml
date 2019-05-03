@@ -21,7 +21,7 @@
 					<h1 class="is-pulled-right ">Sectie</h1>
 				</div>
 
-				<p:commandButton value="Adauga" type="button"
+				<p:commandButton value="Adauga" type="button" styleClass="btn-submit"
 					onclick="PF('dlg').show();" action="#{sectionBean.clear}">
 					<p:ajax update="dlgForm" resetValues="true" />
 				</p:commandButton>
@@ -35,7 +35,7 @@
 
 							<h:outputText value="" />
 
-							<p:commandButton value="Salvare" styleClass="is-pulled-right"
+							<p:commandButton value="Salvare" styleClass="is-pulled-right btn-submit"
 								action="#{sectionBean.saveOrUpdate}" update="table"
 								oncomplete="PF('dlg').hide();" />
 
@@ -67,14 +67,13 @@
 
 							<p:commandButton value="Stergere" styleClass="btn-delete"
 								action="#{sectionBean.delete(section.id)}" update="table">
-								<p:confirm header="Confirmare" 
-									message="Sterge ${section.name}?" />
+								<p:confirm header="Confirmare" message="Sterge ${section.name}?" />
 							</p:commandButton>
 
 							<p:confirmDialog global="true" showEffect="fade"
 								hideEffect="fade">
-								<p:commandButton value="Sterge" type="button"
-									styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+								<p:commandButton value="Sterge" type="button" icon="pi pi-check"
+									styleClass="btn-delete" />
 								<p:commandButton value="Anulare" type="button"
 									styleClass="ui-confirmdialog-no" icon="pi pi-times" />
 							</p:confirmDialog>
@@ -87,6 +86,14 @@
 
 		</div>
 	</div>
+
+	<!-- 	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+		integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+		crossorigin="anonymous"></script> -->
 
 </h:body>
 </html>

@@ -27,10 +27,19 @@ html, body {
 }
 
 .btn-edit {
+	background-color: #c4a000!important;
+	color: #fff !important;
+}
+
+.btn-submit {
 	background-color: #204a87 !important;
 	color: #fff !important;
 }
 
+
+.ui-confirm-dialog-severity {
+    display: none !important;
+}
 
 .tableGrid.ui-panelgrid>*>tr,
 .tableGrid.ui-panelgrid .ui-panelgrid-cell {
